@@ -16,6 +16,8 @@ public class Proyecto2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    tablaHash t =  new tablaHash(7);
+   // t.crecer(11, 8);
     }
     
 }

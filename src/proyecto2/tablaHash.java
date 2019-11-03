@@ -34,6 +34,11 @@ public class tablaHash {
     
     }
     
+    public void insertar(){
+    
+    
+    };
+    
     public void crecer(int x, int y){
         int tot = (int) (x*0.75);
         System.out.println(tot+"  "+x);

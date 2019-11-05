@@ -15,7 +15,7 @@ public class tablaHash {
 
     public tablaHash(int tamaño) {
         this.tamaño = tamaño;
-        this.disponibilidad = tamaño;
+        this.disponibilidad =1;
         this.lista = new lista();
         inicio();
     }
@@ -29,29 +29,25 @@ public class tablaHash {
             x++;
             
         }
-    this.lista.ver();
+   // this.lista.ver();
     
     
     }
     
-    public void insertar(){
+    public void insertar(int id, String I, String C){
     
+        lista.buscar(id,I,C);
     
     };
     
-    public void crecer(int x, int y){
-        int tot = (int) (x*0.75);
-        System.out.println(tot+"  "+x);
+    
+    public void insertarEnLaTabla(){
+        hash h= new hash();
+        int aux = (int) (tamaño*0.75);
+        if(disponibilidad<aux){
         
-        if(tot>y){
-            System.out.println("esta ok");
-        }else{
-            x= x+2;
-            if(x%2!=0){
-                System.out.println("es impar "+x);
-            }else{  
-                System.out.println("es par "+x);
-            }
+        
+        
         }
         
     
@@ -59,5 +55,57 @@ public class tablaHash {
     }
     
     
+    public void crecer(String id, String c){
+        hash h = new hash();
+        int dir = h.getID(id, tamaño);
+        String pass = h.getPassword(c);
+        int tot = (int) (tamaño*0.75);
+        
+        if(tot>disponibilidad){
+            if(lista.validar(id)){
+                insertar(dir, id, pass);
+                disponibilidad ++;
+            }else{
+                System.out.println("nel");
+            }
+        }else{
+            int p =h.iniciar(tamaño);
+            aumentar(p);
+            tamaño = tamaño+p;
+            
+        }
+        
+        lista.ver();
     
+    }
+    
+     public void aumentar(int p){
+    int x = tamaño+1;
+       
+        while (x<=tamaño+p){
+            lista.insertar(x);
+            System.out.println(x);
+            x++;
+            
+        }
+    
+}
+     public boolean validar(String s){
+      return lista.validar(s);
+     
+     }
+     
+     public boolean Login(String name, String contraseña){
+         return lista.login(name, contraseña);
+     }
+     
+     
+     public void Graficar(){
+     
+         lista.graphviz();
+         lista.dot();
+         lista.open();
+     
+     
+     }
 }

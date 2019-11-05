@@ -48,7 +48,7 @@ public class hash {
             sb.append(String.format("%02x", b & 0xff));
         }
         
-            System.out.println(sb.toString());
+          //  System.out.println(sb.toString());
         return sb.toString();
             } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(hash.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,6 +56,25 @@ public class hash {
         return "x";
     }
         
+    
+    private boolean primo(int numero){
+        int aux;
+        for (int i = 2; i < numero; i++) {
+            aux=numero%i;
+            if(aux==0)return false;
+        }
+    
+        return true;
+    }
+    
+    public int iniciar(int limite){
+      int aux = limite+1;
+      while(primo(aux)==false){
+          aux=aux+1;
+      }
+      return aux-limite;
+    
+    }
     }
     
 

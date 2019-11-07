@@ -5,6 +5,11 @@
  */
 package proyecto2;
 
+import java.io.File;
+import java.io.FileInputStream;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Aran
@@ -12,6 +17,9 @@ package proyecto2;
 public class tablaHash {
     int tamaño, disponibilidad;
     lista lista;
+    
+    private String url;
+    private String doc;
 
     public tablaHash(int tamaño) {
         this.tamaño = tamaño;
@@ -75,7 +83,7 @@ public class tablaHash {
             
         }
         
-        lista.ver();
+        //lista.ver();
     
     }
     
@@ -108,4 +116,51 @@ public class tablaHash {
      
      
      }
+     
+     
+     public void Carga(){
+         
+     
+     }
+     
+      public String abrir(){
+        JFileChooser abrir = new JFileChooser();
+        //cambiar el filtro
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv", "csv");
+        abrir.setFileFilter(filtro);
+        abrir.showOpenDialog(abrir);
+        
+        try {
+             url = abrir.getSelectedFile().getAbsolutePath();
+            
+            FileInputStream archivo = new FileInputStream(url);
+            doc="";
+            int ascci;
+            while ((ascci= archivo.read())!=-1) {                
+                char caracter = (char)ascci;
+                doc +=caracter;
+            }
+        } catch (Exception e) {
+            System.out.println("nel no se puede");
+        }
+        
+          
+          return doc;
+    }
+      
+      public void Cargamasiva(){
+      String c = abrir();
+      String Salto[];
+      String coma[];
+       Salto= c.split("\n");
+          for (int i = 1; i < Salto.length; i++) {
+             coma= Salto[i].split(",");
+              for (int j = 0; j < coma.length; j++) {
+                  crecer(coma[0], coma[1]);
+              }
+             
+          }
+      
+      Graficar();
+      }
 }

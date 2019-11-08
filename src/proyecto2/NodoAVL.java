@@ -9,26 +9,24 @@ package proyecto2;
  *
  * @author Aran
  */
-public class nodoAvl {
-    nodoAvl izquierda, derecha;
-    String archivo, contenido;
+public class NodoAVL {
+    NodoAVL izquierda, derecha;
+    String archivo;
+    String contenido;
     int altura;
-    
-    
-        public nodoAvl() {
+    int fe;
+   
+
+
+
+    public NodoAVL(String n, String c) {
         izquierda = null;
         derecha = null;
-        archivo = "";
-        contenido="";
+        archivo = n;
+        contenido=c;
         altura = 0;
-
+        fe = 0;
     }
-
-    public nodoAvl(String a, String c) {
-        izquierda = null;
-        derecha = null;
-        archivo = a;
-        contenido= c;
-        altura = 0;
-    }
+    
+    
 }

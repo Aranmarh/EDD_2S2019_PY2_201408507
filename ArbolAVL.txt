@@ -1,0 +1,17 @@
+digraph G{
+node [shape= box];
+ rankdir=TB
+es[label=" Carnet: es\n Contenido: x \n Altura:3 \n FE: 1"]
+es->chara
+es->mi
+chara[label=" Carnet: chara\n Contenido: x \n Altura:1 \n FE: 1"]
+chara->de 
+de [label=" Carnet: de \n Contenido: x \n Altura:0 \n FE: 0"]
+mi[label=" Carnet: mi\n Contenido: x \n Altura:2 \n FE: 1"]
+mi->hola
+mi->nombre
+hola[label=" Carnet: hola\n Contenido: x \n Altura:0 \n FE: -1"]
+nombre[label=" Carnet: nombre\n Contenido: x \n Altura:1 \n FE: 1"]
+nombre->undertale
+undertale[label=" Carnet: undertale\n Contenido: x \n Altura:0 \n FE: 0"]
+}}

@@ -16,14 +16,24 @@ public class Proyecto2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    tablaHash t =  new tablaHash(7);
-    arbolAvl av = new arbolAvl();
-    av.insertar("python", "x");
-    av.insertar("Excel", "x");
-    av.insertar("Word", "x");
-    av.insertar("java", "x");
-    av.inorder();
+   // tablaHash t =  new tablaHash(7);
+    ArbolAVL av = new ArbolAVL();
+    av.insertar("hola", "x");
+    av.insertar("mi", "x");
+    av.insertar("nombre", "x");
+    av.insertar("es", "x");
+    av.insertar("chara", "x");
+    av.insertar("de ", "x");
+    av.insertar("undertale", "x");
+  //  av.preorder();
+        System.out.println("inicio------");
+    av.Modify("hola","Adios");
+        //System.out.println("-----------------------");
+   // av.preorder();
    
+    
+   // av.inorder();
+   // av.getAVL();
    
     }
     

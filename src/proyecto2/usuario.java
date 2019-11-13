@@ -12,10 +12,12 @@ package proyecto2;
 public class usuario {
     String name; 
     String contraseña;
+    MatrizD md;
 
     public usuario(String name, String contraseña) {
         this.name = name;
         this.contraseña = contraseña;
+        this.md = new MatrizD();
     }
 
     public String getName() {
@@ -33,5 +35,15 @@ public class usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    public MatrizD getMd() {
+        return md;
+    }
+
+    public void setMd(MatrizD md) {
+        this.md = md;
+    }
+    
+    
     
 }

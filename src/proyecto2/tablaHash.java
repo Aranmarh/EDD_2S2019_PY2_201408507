@@ -118,10 +118,7 @@ public class tablaHash {
      }
      
      
-     public void Carga(){
-         
      
-     }
      
       public String abrir(){
         JFileChooser abrir = new JFileChooser();
@@ -162,5 +159,11 @@ public class tablaHash {
           }
       
       Graficar();
+      }
+      
+      public usuario ingrsado(){
+      usuario u = new usuario(url, url);
+      
+      return u;
       }
 }

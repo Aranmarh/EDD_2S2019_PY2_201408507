@@ -11,12 +11,13 @@ package proyecto2;
  * @author Aran
  */
 public class nodoM {
- int id;
+ int idx,idy;
  String Directorio;
  nodoM arriba, abajo, izquierda, derecha;
 
-    public nodoM(int id, String Directorio) {
-        this.id = id;
+    public nodoM(int idx, int idy, String Directorio) {
+        this.idx = idx;
+        this.idy=idy;
         this.Directorio = Directorio;
         this.arriba = null;
         this.abajo = null;
@@ -24,13 +25,23 @@ public class nodoM {
         this.derecha = null;
     }
 
-    public int getId() {
-        return id;
+    public int getIdx() {
+        return idx;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdx(int idx) {
+        this.idx = idx;
     }
+
+    public int getIdy() {
+        return idy;
+    }
+
+    public void setIdy(int idy) {
+        this.idy = idy;
+    }
+
+  
 
     public String getDirectorio() {
         return Directorio;

@@ -169,7 +169,7 @@ public class lista {
     
     
     
-        public void graphviz(){
+    public void graphviz(){
         String t="digraph D { \n  node [shape=plaintext]";
         String rul=  "TablaHASH.txt";
 
@@ -200,14 +200,14 @@ public class lista {
             }
         
       
-             public void dot(){
-                String pro= "dot  -Tpng TablaHASH.txt -o TablaHASH.png";
-                    try {
-                        ProcessBuilder p= new ProcessBuilder();
-                p.command("cmd.exe","/c",pro);
-                p.start();
-                    } catch (Exception e) {
-                    }
+    public void dot(){
+       String pro= "dot  -Tpng TablaHASH.txt -o TablaHASH.png";
+           try {
+               ProcessBuilder p= new ProcessBuilder();
+       p.command("cmd.exe","/c",pro);
+       p.start();
+           } catch (Exception e) {
+           }
 
 }
     public void open(){
@@ -220,5 +220,25 @@ public class lista {
             }
 
 }
+    public usuario getU(String nombre){
+        nodoLista actual = primero;
+        while (actual!=null) {     
+            usuario u = actual.getU();
+            if(u!=null){
+                if(u.getName().equals(nombre)){
+                break;
+                }
+            }
+            actual = actual.getSiguiente();
+        }if(actual!=null){
+            usuario u = actual.getU();
+            if(u.getName().equals(nombre)){
+                return u;
+            }
+    }
+    return null;
+}
+    
+    
     
 }

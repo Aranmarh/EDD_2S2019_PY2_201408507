@@ -145,7 +145,10 @@ tablaHash th;
         if(th.Login(jTextField1.getText(), jTextField2.getText())){
              JOptionPane.showMessageDialog(this, " Bienvenido");
              usuario u = th.lista.getU(jTextField1.getText());
-             Archivo ar = new Archivo(u);
+             Archivo ar = new Archivo(u,this,th);
+             this.jTextField1.setText("");
+             this.jTextField2.setText("");
+             this.setVisible(false);
              System.out.println(u.getName());
             
         }else{

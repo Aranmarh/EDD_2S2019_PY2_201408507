@@ -82,7 +82,7 @@ public class tablaHash {
             tamaño = tamaño+p;
             
         }
-        
+        Graficar();
         //lista.ver();
     
     }
@@ -112,7 +112,7 @@ public class tablaHash {
      
          lista.graphviz();
          lista.dot();
-         lista.open();
+        // lista.open();
      
      
      }

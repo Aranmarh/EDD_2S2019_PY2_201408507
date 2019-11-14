@@ -52,7 +52,7 @@ public class reporteT extends javax.swing.JFrame {
 
         jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto2/TablaHASH.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto2/Tabla.png"))); // NOI18N
         jScrollPane1.setViewportView(jLabel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

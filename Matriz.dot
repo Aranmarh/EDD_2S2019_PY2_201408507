@@ -4,71 +4,36 @@ node [shape= record]
 00->10
 10[label="/ " pos="3,0!"];
 10->20
-20[label="Descarga  " pos="6,0!"];
+20[label="miel " pos="6,0!"];
 20->30
-30[label="Mis documentos " pos="9,0!"];
+30[label="azucar " pos="9,0!"];
 30->40
-40[label="packs " pos="12,0!"];
+40[label="limon " pos="12,0!"];
 40->50
-50[label="LOL " pos="15,0!"];
-50->60
-60[label="Netbeans projects " pos="18,0!"];
-60->70
-70[label="Pycharm " pos="21,0!"];
-70->80
-80[label="EDDProyecto2 " pos="24,0!"];
-80->90
-90[label="p1 " pos="27,0!"];
-90->100
-100[label="Descarga  " pos="30,0!"];
+50[label="picante " pos="15,0!"];
 01[label="/ " pos="0,-1!"];
 01->00
 01->11
 11[label="/ " pos="3,-1!"];
 11->10
 11->21
-21[label="//Descarga  " pos="6,-1!"];
+21[label="//miel " pos="6,-1!"];
 21->20
 21->31
-31[label="//Mis documentos " pos="9,-1!"];
+31[label="//azucar " pos="9,-1!"];
 31->30
-02[label="Descarga  " pos="0,-2!"];
+31->41
+41[label="//limon " pos="12,-1!"];
+41->40
+41->51
+51[label="//picante " pos="15,-1!"];
+51->50
+02[label="miel " pos="0,-2!"];
 02->01
-02->42
-42[label="Descarga /packs " pos="12,-2!"];
-42->40
-42->52
-52[label="Descarga /LOL " pos="15,-2!"];
-52->50
-52->62
-62[label="Descarga /Netbeans projects " pos="18,-2!"];
-62->60
-62->72
-72[label="Descarga /Pycharm " pos="21,-2!"];
-72->70
-03[label="Mis documentos " pos="0,-3!"];
+03[label="azucar " pos="0,-3!"];
 03->02
-04[label="packs " pos="0,-4!"];
+04[label="limon " pos="0,-4!"];
 04->03
-04->94
-94[label="packs/p1 " pos="27,-4!"];
-94->90
-94->104
-104[label="packs/Descarga  " pos="30,-4!"];
-104->100
-05[label="LOL " pos="0,-5!"];
+05[label="picante " pos="0,-5!"];
 05->04
-05->85
-85[label="LOL/EDDProyecto2 " pos="24,-5!"];
-85->80
-06[label="Netbeans projects " pos="0,-6!"];
-06->05
-07[label="Pycharm " pos="0,-7!"];
-07->06
-08[label="EDDProyecto2 " pos="0,-8!"];
-08->07
-09[label="p1 " pos="0,-9!"];
-09->08
-010[label="Descarga  " pos="0,-10!"];
-010->09
 }

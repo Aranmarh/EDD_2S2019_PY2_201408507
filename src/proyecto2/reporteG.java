@@ -5,39 +5,27 @@
  */
 package proyecto2;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author Aran
  */
-public class reporteM extends javax.swing.JFrame {
-    String s;  
+public class reporteG extends javax.swing.JFrame {
+ImageIcon Archivo = new ImageIcon("Grafo.png");
     /**
-     * Creates new form reporteM
+     * Creates new form reporteG
      */
-    public reporteM(String s) {
+    public reporteG() {
         initComponents();
+        
         this.setVisible(true);
-        this.setTitle(s);
-        
-        
-        this.s = s;
-        mostrar(s);
+        this.Ventana.setIcon(Archivo);
+        this.Ventana.updateUI();
+        this.Ventana.getGraphics();
+       
     }
 
-    public void mostrar(String i){
-        ImageIcon imagen = new ImageIcon(i);
-        Imagen.setIcon(imagen);
-    
-    
-    
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,26 +35,22 @@ public class reporteM extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Imagen = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Ventana = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jScrollPane2.setViewportView(Imagen);
+        jScrollPane1.setViewportView(Ventana);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 976, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
         );
 
         pack();
@@ -76,8 +60,9 @@ public class reporteM extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Imagen;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel Ventana;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

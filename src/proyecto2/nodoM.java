@@ -1,5 +1,7 @@
 package proyecto2;
 
+import sun.misc.Contended;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +16,7 @@ public class nodoM {
  int idx,idy;
  String Directorio;
  nodoM arriba, abajo, izquierda, derecha;
+ ArbolAVL a = new ArbolAVL();
 
     public nodoM(int idx, int idy, String Directorio) {
         this.idx = idx;
@@ -84,8 +87,34 @@ public class nodoM {
     }
     
     
+    public void insertarArchivo(String Archivo, String Contenido){
+        a.insertar(Archivo,Contenido);
     
- 
+    }
+    
+    public void  eliminarArchivo(String Archivo){
+        a.Delete(Archivo);
+    
+    }
+    
+    public void modificarArchivo(String Archivo,String Nuevo){
+        a.Modify(Archivo, Nuevo);
+    
+    }
+    
+    public void GraficarArbol(){
+    
+        a.getAVL();
+    }
+
+    public ArbolAVL getA() {
+        return a;
+    }
+
+    public void setA(ArbolAVL a) {
+        this.a = a;
+    }
+    
  
  
 }

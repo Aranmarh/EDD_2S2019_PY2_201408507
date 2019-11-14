@@ -15,48 +15,12 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-
-      //Inicio i = new Inicio();
-            MatrizD m = new MatrizD();
-        m.recorrerPadre();
-        m.recorrerHijo();
-        m.BuscarEspacio(1);
-
-           System.out.println("insertar.....");
-           m.ingresarCarpeta(1,"Descarga ");
-           System.out.println("-------2-------");
-            m.ingresarCarpeta(1,"Mis documentos");
-
-            System.out.println("recorrer");
-            m.BuscarEspacio(1);
-
-            m.ingresarCarpeta(2, "packs");
-            m.ingresarCarpeta(2, "LOL");
-            m.ingresarCarpeta(2, "Netbeans projects");
-            m.ingresarCarpeta(2, "Pycharm");
-            m.ingresarCarpeta(5, "EDDProyecto2");
-            m.ingresarCarpeta(4, "p1");
-            m.ingresarCarpeta(4, "Descarga ");
-            //m.grafica();
-
-            System.out.println(m.Grafo());
-          //  m.BuscarEspacio(1);
-            m.recorrerPadre();
-            System.out.println(m.recorrer());
-            m.modificar(2, 4, "otro Doc");
-            m.recorrerPadre();
-            m.recorrerHijo();
-            System.out.println("ELIMINAR.............................");
-            m.Eliminar(4);
-            m.recorrerPadre();
-            m.recorrerHijo();
-            //System.out.println(m.recorrer());
-//           System.out.println("padre");
-//      m.recorrerPadre();
-//           System.out.println("hijo");
-//      m.recorrerHijo();
+            ArbolAVL av = new ArbolAVL();
+            av.Cargamasiva();
     }
+    
+    
+    
     
     
     ///////Matriz y grafo

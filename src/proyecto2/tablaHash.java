@@ -82,7 +82,7 @@ public class tablaHash {
             tamaño = tamaño+p;
             
         }
-        
+        Graficar();
         //lista.ver();
     
     }
@@ -109,10 +109,9 @@ public class tablaHash {
      
      
      public void Graficar(){
-     
          lista.graphviz();
          lista.dot();
-         lista.open();
+        // lista.open();
      
      
      }
@@ -152,13 +151,12 @@ public class tablaHash {
        Salto= c.split("\n");
           for (int i = 1; i < Salto.length; i++) {
              coma= Salto[i].split(",");
-              for (int j = 0; j < coma.length; j++) {
-                  crecer(coma[0], coma[1]);
-              }
-             
+                crecer(coma[0], coma[1]);
+
           }
       
       Graficar();
+      
       }
       
       public usuario ingrsado(){

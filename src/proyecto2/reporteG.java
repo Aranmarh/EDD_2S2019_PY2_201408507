@@ -5,47 +5,26 @@
  */
 package proyecto2;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *
  * @author Aran
  */
-public class reporteT extends javax.swing.JFrame {
-    
-     String s;
-     tablaHash th;
-     
+public class reporteG extends javax.swing.JFrame {
+ImageIcon Archivo = new ImageIcon("Grafo.png");
     /**
-     * Creates new form visorImagenes
+     * Creates new form reporteG
      */
-    public reporteT(String s,tablaHash th) {
+    public reporteG() {
         initComponents();
-        this.setTitle("Tabla Hash");
-        this.setVisible(true);
-        this.th=th;
-        th.Graficar();
-        this.s = s;
-        mostrar(s);
-    }
-    
-    
-        public void mostrar(String i){
-        ImageIcon imagen = new ImageIcon(i);
-        imagen.getImage().flush();
-        Imagen.setIcon(imagen);
-        //Imagen.repaint();
         
+        this.setVisible(true);
+        Archivo.getImage().flush();
+        this.Ventana.setIcon(Archivo);
+       
+       
     }
-  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,37 +36,33 @@ public class reporteT extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        Imagen = new javax.swing.JLabel();
+        Ventana = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(200, 100, 0, 0));
 
-        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-        jScrollPane1.setViewportView(Imagen);
+        jScrollPane1.setViewportView(Ventana);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
-     
+
     /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Imagen;
+    private javax.swing.JLabel Ventana;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

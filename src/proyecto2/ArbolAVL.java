@@ -10,7 +10,10 @@ package proyecto2;
  * @author Aran
  */
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileWriter;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -217,7 +220,7 @@ public class ArbolAVL {
      }
      
      private void G(){
-         String rul=  "ArbolAVL.txt";
+         String rul=  ".\\src\\proyecto2\\ArbolAVL.txt";
          g+="digraph G{\n";
          g+="node [shape= box];\n rankdir=TB\n";
          Graficar(raiz);
@@ -234,7 +237,7 @@ public class ArbolAVL {
      }
      
       private void dot(){
-       String pro= "dot  -Tpng ArbolAVL.txt -o ArbolAVL.png";
+       String pro= "dot  -Tpng .\\src\\proyecto2\\ArbolAVL.txt -o .\\src\\proyecto2\\ArbolAVL.png";
            try {
                ProcessBuilder p= new ProcessBuilder();
        p.command("cmd.exe","/c",pro);
@@ -313,4 +316,48 @@ public class ArbolAVL {
          l.primero=null;
          inorder();
      }
-}
+     
+      public String abrir(){
+        String url;
+        String doc="";
+        JFileChooser abrir = new JFileChooser();
+        //cambiar el filtro
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv", "csv");
+        abrir.setFileFilter(filtro);
+        abrir.showOpenDialog(abrir);
+        
+        try {
+             url = abrir.getSelectedFile().getAbsolutePath();
+            
+            FileInputStream archivo = new FileInputStream(url);
+            doc="";
+            int ascci;
+            while ((ascci= archivo.read())!=-1) {                
+                char caracter = (char)ascci;
+                doc +=caracter;
+            }
+        } catch (Exception e) {
+            System.out.println("nel no se puede");
+        }
+        
+          
+          return doc;
+    }
+      
+      public void Cargamasiva(){
+      String c = abrir();
+      String Salto[];
+      String coma[];
+       Salto= c.split("\n");
+          for (int i = 1; i < Salto.length; i++) {
+              coma=Salto[i].split(",");
+              System.out.println(coma[0]+"   "+coma[1]);
+              insertar(coma[0], coma[1]);
+              System.out.println("");
+              
+          }
+          }
+      
+          //getAVL();
+      }
+

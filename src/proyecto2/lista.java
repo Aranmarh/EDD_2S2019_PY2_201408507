@@ -85,7 +85,7 @@ public class lista {
         if (actual!=null) {
             if(id==actual.getId()){
         
-                    System.out.println(id);
+                    //System.out.println(id);
                     insertarU(actual, u);
                 
                 
@@ -101,11 +101,11 @@ public class lista {
         if(actual!=null){
             if(actual.getU()==null){
                 actual.setU(u);
-                System.out.println(actual.getId()+"--------");
+               // System.out.println(actual.getId()+"--------");
                 System.out.println("se agrego ID "+u.getName()+" Contraseña "+u.getContraseña());
                 return "se agrego";
             }else{
-                System.out.println(actual.getSiguiente().getId());
+                //System.out.println(actual.getSiguiente().getId());
                 return insertarU(actual.getSiguiente(),u);
             }
         }
@@ -171,7 +171,7 @@ public class lista {
     
     public void graphviz(){
         String t="digraph D { \n  node [shape=plaintext]";
-        String rul=  "TablaHASH.txt";
+        String rul=  "Tabla.txt";
 
         nodoLista actual=primero;
         t+="\n   nodo [";
@@ -201,7 +201,7 @@ public class lista {
         
       
     public void dot(){
-       String pro= "dot  -Tpng TablaHASH.txt -o TablaHASH.png";
+       String pro= "dot  -Tpng Tabla.txt -o Tabla.png";
            try {
                ProcessBuilder p= new ProcessBuilder();
        p.command("cmd.exe","/c",pro);

@@ -123,22 +123,27 @@ tablaHash th = new tablaHash(7);
         // TODO add your handling code here:
         Login l = new Login(this,th);
         this.setVisible(false);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Registrer r = new Registrer(this,th);
+       // th.Graficar();
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        reporteT t = new reporteT();
+        
+        reporteT t = new reporteT("Tabla.png",th);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        th.Graficar();
         th.Cargamasiva();
+        //
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

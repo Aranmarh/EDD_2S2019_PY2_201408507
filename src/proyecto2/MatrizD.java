@@ -17,8 +17,8 @@ public class MatrizD {
     nodoM inicio, UltimoP, UltimoH;
     int idy =1;
     int idx=1;
-    String Matrix="digraph G{\nnode [shape= record] \n";
-    String G = "digraph G{\nnode [shape= circle] \n";
+   
+   
     
 
     public MatrizD() {
@@ -113,6 +113,9 @@ public class MatrizD {
         insertarHijo(hijo);
         insertarDir(CarpetaPadre);
         insertarPadre(hijo);
+        
+        grafica();
+        GraficaG();
     
     }
     
@@ -152,13 +155,10 @@ public class MatrizD {
     return a;
     }
 
-    public void graficar(){
-        nodoM primero = inicio;
-        
-    
-    }
+ 
     
     public String recorrer(){
+        String Matrix="digraph G{\nnode [shape= record] \n";
         nodoM x =inicio;
         nodoM y = inicio;
         System.out.println("GRAFICAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -191,6 +191,21 @@ public class MatrizD {
             try {
                 graph =new BufferedWriter(new FileWriter(rul));
                 graph.write(recorrer());
+                graph.flush();
+                graph.close();
+                
+                } catch (Exception e) {
+                }
+            }
+    
+        public void graphvizG(){
+        BufferedWriter graph;
+        String rul=  "Grafo.txt";
+
+            try {
+                graph =new BufferedWriter(new FileWriter(rul));
+                graph.write(Grafo());
+                graph.flush();
                 graph.close();
                 
                 } catch (Exception e) {
@@ -208,24 +223,57 @@ public class MatrizD {
            }
 
 }
-    public void open(){
-        String pro= "matriz.png";
-            try {
-                ProcessBuilder p= new ProcessBuilder();
-        p.command("cmd.exe","/c",pro);
-        p.start();
-            } catch (Exception e) {
-            }
+      public void deleteM(){
+       String pro= "DEL matriz.dot";
+           try {
+               ProcessBuilder p= new ProcessBuilder();
+       p.command("cmd.exe","/c",pro);
+       p.start();
+           } catch (Exception e) {
+           }
 
 }
+    public void dotG(){
+       String pro= "dot -Tpng Grafo.txt -o Grafo.png";
+           try {
+               ProcessBuilder p= new ProcessBuilder();
+       p.command("cmd.exe","/c",pro);
+       p.start();
+           } catch (Exception e) {
+           }
+
+}
+    public void delG(){
+       String pro= "DEL Grafo.png";
+           try {
+               ProcessBuilder p= new ProcessBuilder();
+       p.command("cmd.exe","/c",pro);
+       p.start();
+           } catch (Exception e) {
+           }
+
+}
+ 
     public void grafica(){
+       // deleteM();
         graphviz();
         dot();
-        open();
+        
+        
+       // open();
+    
+    }
+    
+    public void GraficaG(){
+       // delG();
+        graphvizG();
+        dotG();
+        
     
     }
     
     public String Grafo(){
+        String G = "digraph G{\nnode [shape= circle] \n";
         nodoM x =inicio.getAbajo();
         nodoM y = inicio.getAbajo();
         System.out.println("GRAFICAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -326,7 +374,25 @@ public class MatrizD {
     
     
     }
-
+    
+    
+        public void MostrarM(){
+        nodoM x =inicio;
+        nodoM y = inicio;
+       
+        while(y!=null){
+            while (x!=null) {
+                System.out.print(x.getDirectorio()+"     ->    ");
+               x= x.getDerecha();
+            }
+            System.out.println("");
+            y = y.getAbajo();
+            x=y;
+        }
+        
+    
+  
+    }
 }
 
 

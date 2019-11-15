@@ -29,7 +29,7 @@ public class Archivo extends javax.swing.JFrame {
     
     int arbol;
     int carpetaA=1;
-    int carpetaS;
+    int carpetaS=1;
     nodoM root;
     NodoAVL r;
     MatrizD matrix;
@@ -163,6 +163,11 @@ public class Archivo extends javax.swing.JFrame {
 
         jButton13.setBackground(new java.awt.Color(153, 153, 153));
         jButton13.setText("Abrir");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         jButton14.setBackground(new java.awt.Color(153, 153, 153));
         jButton14.setText("Reporte Grafo");
@@ -477,13 +482,25 @@ public class Archivo extends javax.swing.JFrame {
         r.Cargamasiva();
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        System.out.println("cambiar carpeta");
+        System.out.println("Carpeta Siguiente"+carpetaS+"   Carpeta Actual "+carpetaA);
+        int usu = carpetaA;
+        carpetaA = carpetaS;
+        carpetaS = usu;
+        System.out.println("Carpeta Siguiente"+carpetaS+"   Carpeta Actual "+carpetaA);
+        mostrarbotones();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     public void crearCarpeta(){
         nodoM actual = u.getMd().buscarP(carpetaA).getDerecha();
-        nodoM padre=actual;
+       
+       
         
         Ventana.removeAll();
         while (actual!=null) {    
@@ -491,20 +508,18 @@ public class Archivo extends javax.swing.JFrame {
             Boton b = new Boton(this,actual.getArriba().getDirectorio(),actual.idx,actual.idy);
            JButton nuevo =  b.MakeButtonArch();
             Ventana.add(nuevo);
-            }else{
-                padre = actual;
             }
             
             
             
             actual = actual.getDerecha();
         }
-        if(carpetaA!=1&&carpetaS!=1){
-            actual = actual.getDerecha();
-            Boton b = new Boton(this,padre.getArriba().getDirectorio(),padre.idx,padre.idy);
+        
+           
+        Boton b = new Boton(this,"Regresar",carpetaS,carpetaA);
         JButton nuevo =  b.MakeButtonArch();
         Ventana.add(nuevo);
-        }
+        
         
         
         Ventana.updateUI();

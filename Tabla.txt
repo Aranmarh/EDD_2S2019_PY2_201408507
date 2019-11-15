@@ -3,9 +3,9 @@ digraph D {
    nodo [
   label=< 
  <table border="0px">
-<tr><td bgcolor="lightblue">0</td><td bgcolor="gray">ID: 1 Contraseña: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</td></tr>
+<tr><td bgcolor="lightblue">0</td></tr>
 <tr><td bgcolor="lightblue">1</td></tr>
-<tr><td bgcolor="lightblue">2</td></tr>
+<tr><td bgcolor="lightblue">2</td><td bgcolor="gray">ID: Angel Contraseña: 6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b</td></tr>
 <tr><td bgcolor="lightblue">3</td></tr>
 <tr><td bgcolor="lightblue">4</td></tr>
 <tr><td bgcolor="lightblue">5</td></tr>

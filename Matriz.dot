@@ -4,36 +4,43 @@ node [shape= record]
 00->10
 10[label="/ " pos="3,0!"];
 10->20
-20[label="miel " pos="6,0!"];
+20[label="carpeta " pos="6,0!"];
 20->30
-30[label="azucar " pos="9,0!"];
+30[label="Maria " pos="9,0!"];
 30->40
-40[label="limon " pos="12,0!"];
+40[label="Bella " pos="12,0!"];
 40->50
-50[label="picante " pos="15,0!"];
+50[label="Ilusion " pos="15,0!"];
+50->60
+60[label="Aran " pos="18,0!"];
 01[label="/ " pos="0,-1!"];
 01->00
 01->11
 11[label="/ " pos="3,-1!"];
 11->10
 11->21
-21[label="//miel " pos="6,-1!"];
+21[label="//carpeta " pos="6,-1!"];
 21->20
 21->31
-31[label="//azucar " pos="9,-1!"];
+31[label="//Maria " pos="9,-1!"];
 31->30
 31->41
-41[label="//limon " pos="12,-1!"];
+41[label="//Bella " pos="12,-1!"];
 41->40
 41->51
-51[label="//picante " pos="15,-1!"];
+51[label="//Ilusion " pos="15,-1!"];
 51->50
-02[label="miel " pos="0,-2!"];
+51->61
+61[label="//Aran " pos="18,-1!"];
+61->60
+02[label="carpeta " pos="0,-2!"];
 02->01
-03[label="azucar " pos="0,-3!"];
+03[label="Maria " pos="0,-3!"];
 03->02
-04[label="limon " pos="0,-4!"];
+04[label="Bella " pos="0,-4!"];
 04->03
-05[label="picante " pos="0,-5!"];
+05[label="Ilusion " pos="0,-5!"];
 05->04
+06[label="Aran " pos="0,-6!"];
+06->05
 }

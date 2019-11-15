@@ -20,9 +20,9 @@ ImageIcon Archivo = new ImageIcon("Grafo.png");
         initComponents();
         
         this.setVisible(true);
+        Archivo.getImage().flush();
         this.Ventana.setIcon(Archivo);
-        this.Ventana.updateUI();
-        this.Ventana.getGraphics();
+       
        
     }
 

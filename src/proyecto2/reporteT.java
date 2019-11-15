@@ -21,18 +21,30 @@ import javax.swing.JLabel;
  */
 public class reporteT extends javax.swing.JFrame {
     
-     
+     String s;
+     tablaHash th;
      
     /**
      * Creates new form visorImagenes
      */
-    public reporteT() {
+    public reporteT(String s,tablaHash th) {
         initComponents();
         this.setTitle("Tabla Hash");
-        
         this.setVisible(true);
+        this.th=th;
+        th.Graficar();
+        this.s = s;
+        mostrar(s);
     }
     
+    
+        public void mostrar(String i){
+        ImageIcon imagen = new ImageIcon(i);
+        imagen.getImage().flush();
+        Imagen.setIcon(imagen);
+        //Imagen.repaint();
+        
+    }
   
 
     /**
@@ -45,15 +57,13 @@ public class reporteT extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jLabel1 = new javax.swing.JLabel();
+        Imagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBounds(new java.awt.Rectangle(200, 100, 0, 0));
 
         jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto2/Tabla.png"))); // NOI18N
-        jScrollPane1.setViewportView(jLabel1);
+        jScrollPane1.setViewportView(Imagen);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,7 +87,7 @@ public class reporteT extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Imagen;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

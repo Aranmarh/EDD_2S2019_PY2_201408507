@@ -32,9 +32,8 @@ public class reporteM extends javax.swing.JFrame {
 
     public void mostrar(String i){
         ImageIcon imagen = new ImageIcon(i);
+        imagen.getImage().flush();
         Imagen.setIcon(imagen);
-    
-    
     
     }
     

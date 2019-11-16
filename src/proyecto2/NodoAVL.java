@@ -15,6 +15,54 @@ public class NodoAVL {
     String contenido;
     int altura;
     int fe;
+
+    public NodoAVL getIzquierda() {
+        return izquierda;
+    }
+
+    public void setIzquierda(NodoAVL izquierda) {
+        this.izquierda = izquierda;
+    }
+
+    public NodoAVL getDerecha() {
+        return derecha;
+    }
+
+    public void setDerecha(NodoAVL derecha) {
+        this.derecha = derecha;
+    }
+
+    public String getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public int getAltura() {
+        return altura;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+
+    public int getFe() {
+        return fe;
+    }
+
+    public void setFe(int fe) {
+        this.fe = fe;
+    }
    
 
 

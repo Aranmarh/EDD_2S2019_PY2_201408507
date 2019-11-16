@@ -15,8 +15,32 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-            ArbolAVL av = new ArbolAVL();
-            av.Cargamasiva();
+           // ArbolAVL av = new ArbolAVL();
+            //av.Cargamasiva();
+//             MatrizD m = new MatrizD();
+//                m.ingresarCarpeta(1,"Descarga ");
+//                m.ingresarCarpeta(1,"Mis documentos");
+//                m.ingresarCarpeta(2, "packs");
+//                m.ingresarCarpeta(2, "LOL");
+//                m.ingresarCarpeta(2, "Netbeans projects");
+//                m.ingresarCarpeta(2, "Pycharm");
+//                m.ingresarCarpeta(5, "EDDProyecto2");
+//                m.ingresarCarpeta(4, "p1");
+//                m.ingresarCarpeta(8, "Descarga ");
+//                System.out.println(m.getPath(10, ""));
+
+        ArbolAVL ab = new ArbolAVL();
+        ab.Cargamasiva();
+        ab.getAVL();
+        
+        
+        
+        
+        
+        
+        
+        ab.inorder();
+        
     }
     
     

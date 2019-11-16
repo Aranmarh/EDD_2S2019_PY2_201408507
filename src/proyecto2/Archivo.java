@@ -12,6 +12,7 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -28,6 +29,9 @@ public class Archivo extends javax.swing.JFrame {
     tablaHash th;
     
     int arbol;
+    
+    ///mover carpetas///
+    int carpetaant = 1; 
     int carpetaA=1;
     int carpetaS=1;
     nodoM root;
@@ -35,8 +39,9 @@ public class Archivo extends javax.swing.JFrame {
     MatrizD matrix;
     
     // Matriz//////////////////////////////////////////
-    String Matrix="digraph G{\nnode [shape= record] \n";
-    String G = "digraph G{\nnode [shape= circle] \n";
+    public void getPath(){
+        path.setText(matrix.getPath(carpetaA, ""));
+    }
     
     
     
@@ -53,6 +58,7 @@ public class Archivo extends javax.swing.JFrame {
         this.matrix = u.getMd();
         this.l = l;
         this.th = th;
+        this.path.setText("/");
     }
 
     /**
@@ -89,7 +95,8 @@ public class Archivo extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Ventana = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        pathP = new javax.swing.JPanel();
+        path = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(200, 0, 900, 620));
@@ -98,25 +105,24 @@ public class Archivo extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(11, 28, 38));
 
-        Nombre.setFont(new java.awt.Font("Papyrus", 1, 24)); // NOI18N
+        Nombre.setFont(new java.awt.Font("Papyrus", 1, 36)); // NOI18N
         Nombre.setForeground(new java.awt.Color(255, 255, 255));
+        Nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Nombre.setText("[NOMBRE]");
+        Nombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156)
+                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(29, 66, 89));
@@ -136,6 +142,11 @@ public class Archivo extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(153, 153, 153));
         jButton2.setText("Modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(153, 153, 153));
         jButton3.setText("Eliminar");
@@ -235,6 +246,11 @@ public class Archivo extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(153, 153, 153));
         jButton6.setText("Modificar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(153, 153, 153));
         jButton7.setText("Eliminar");
@@ -351,15 +367,21 @@ public class Archivo extends javax.swing.JFrame {
         Ventana.setLayout(new java.awt.GridLayout(0, 3));
         jScrollPane1.setViewportView(Ventana);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 538, Short.MAX_VALUE)
+        path.setFont(new java.awt.Font("Papyrus", 0, 18)); // NOI18N
+        path.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout pathPLayout = new javax.swing.GroupLayout(pathP);
+        pathP.setLayout(pathPLayout);
+        pathPLayout.setHorizontalGroup(
+            pathPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pathPLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(path, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 24, Short.MAX_VALUE)
+        pathPLayout.setVerticalGroup(
+            pathPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(path, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -372,7 +394,7 @@ public class Archivo extends javax.swing.JFrame {
                 .addGap(87, 87, 87)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pathP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(57, 57, 57))
         );
         jPanel1Layout.setVerticalGroup(
@@ -384,7 +406,7 @@ public class Archivo extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pathP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -440,6 +462,10 @@ public class Archivo extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        ArbolAVL r = matrix.buscarP(carpetaA).getA();
+        r.getAVL();
+        reporteA a = new reporteA("ArbolAVL.png");
+        
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -451,7 +477,11 @@ public class Archivo extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        matrix.delG();
+        Object seleccion=  JOptionPane.showInputDialog(this, "Ingrese el Archivo a eliminar");
+         ArbolAVL r = matrix.buscarP(carpetaA).getA();
+        r.Delete(seleccion.toString());
+        mostrarbotones();
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -468,7 +498,9 @@ public class Archivo extends javax.swing.JFrame {
         int result = JOptionPane.showConfirmDialog(this, option,"Ingrese el nuevo archivo",JOptionPane.OK_CANCEL_OPTION);
         if(result ==JOptionPane.OK_OPTION){
         ArbolAVL r = matrix.buscarP(carpetaA).getA();
-        r.insertar(a.getText(), c.getText());
+       
+        r.insert(a.getText(), c.getText());
+        r.inorder();
         mostrarbotones();
         
         }
@@ -491,7 +523,37 @@ public class Archivo extends javax.swing.JFrame {
         carpetaS = usu;
         System.out.println("Carpeta Siguiente"+carpetaS+"   Carpeta Actual "+carpetaA);
         mostrarbotones();
+        getPath();
+        if(carpetaA==1 && carpetaS == 1){
+        path.setText("/");
+        
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        matrix.modificar(carpetaA, carpetaS, Archivo);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+         JTextField a = new JTextField(5);
+        JTextField c = new JTextField(5);
+        JTextArea contendio  = new JTextArea(10, 10);
+        
+        JPanel option = new JPanel();
+        option.add(new Label("Ingrese el archivo a modificar"));
+        option.add(a);
+        option.add(Box.createHorizontalStrut(15));
+        option.add(new Label("Ingrese el nombre del archivo modificado"));
+        option.add(c);
+        option.add(new Label("Ingrese el nuevo contenido"));
+        option.add(contendio);
+        int result = JOptionPane.showConfirmDialog(this, option,"Ingrese el nuevo archivo",JOptionPane.OK_CANCEL_OPTION);
+        if(result ==JOptionPane.OK_OPTION){
+        ArbolAVL r = matrix.buscarP(carpetaA).getA();
+        r.Modify(a.getText(), c.getText(),contendio.getText());
+        mostrarbotones();
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -516,7 +578,7 @@ public class Archivo extends javax.swing.JFrame {
         }
         
            
-        Boton b = new Boton(this,"Regresar",carpetaS,carpetaA);
+        Boton b = new Boton(this,"Regresar",1,carpetaA);
         JButton nuevo =  b.MakeButtonArch();
         Ventana.add(nuevo);
         
@@ -594,7 +656,8 @@ public class Archivo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel path;
+    private javax.swing.JPanel pathP;
     // End of variables declaration//GEN-END:variables
 }

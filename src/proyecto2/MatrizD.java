@@ -95,6 +95,32 @@ public class MatrizD {
        }
     return null;
     }
+    public nodoM buscarH(int x){
+        nodoM actual= inicio.getDerecha();
+        while(actual!=null){
+        if (actual.getIdx()==x) {
+                
+                return actual;
+            }
+            actual=actual.getDerecha();
+        }
+       if(actual !=null){
+           return actual;
+       }
+    return null;
+    }
+    
+    public String getPath(int x, String S){
+        nodoM actual = buscarH(x);
+        String m = "\\"+actual.getDirectorio();
+        if(x!=1){
+        m+=S;
+           // System.out.println("el siguiente"+actual.getAbajo().getIdy());
+        return getPath(actual.getAbajo().getIdy(), m);
+        }
+    
+    return S;
+    }
     
     public void insertarDir(int x){
         nodoM padre = buscarP(x);
@@ -161,7 +187,7 @@ public class MatrizD {
         String Matrix="digraph G{\nnode [shape= record] \n";
         nodoM x =inicio;
         nodoM y = inicio;
-        System.out.println("GRAFICAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //System.out.println("GRAFICAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         while(y!=null){
             while (x!=null) {
                 Matrix+=x.getIdx()+""+x.getIdy()+"[label=\""+x.getDirectorio()+" \" pos=\""+x.getIdx()*3+","+x.getIdy()*-1+"!\"];\n";
@@ -171,10 +197,10 @@ public class MatrizD {
                 if(x.getDerecha()!=null){
                     Matrix+= x.getIdx()+""+x.getIdy()+"->"+x.getDerecha().getIdx()+x.getDerecha().getIdy()+"\n";
                 }
-                 System.out.print(x.getIdx()+","+x.getIdy()+" dir: "+x.getDirectorio()+"   ");
+               //  System.out.print(x.getIdx()+","+x.getIdy()+" dir: "+x.getDirectorio()+"   ");
                 x = x.getDerecha();
             }
-            System.out.println("");
+            //System.out.println("");
             y = y.getAbajo();
             x=y;
         }
@@ -223,16 +249,9 @@ public class MatrizD {
            }
 
 }
-      public void deleteM(){
-       String pro= "DEL matriz.dot";
-           try {
-               ProcessBuilder p= new ProcessBuilder();
-       p.command("cmd.exe","/c",pro);
-       p.start();
-           } catch (Exception e) {
-           }
+   
 
-}
+
     public void dotG(){
        String pro= "dot -Tpng Grafo.txt -o Grafo.png";
            try {
@@ -243,16 +262,7 @@ public class MatrizD {
            }
 
 }
-    public void delG(){
-       String pro= "DEL Grafo.png";
-           try {
-               ProcessBuilder p= new ProcessBuilder();
-       p.command("cmd.exe","/c",pro);
-       p.start();
-           } catch (Exception e) {
-           }
-
-}
+  
  
     public void grafica(){
        // deleteM();
@@ -276,7 +286,7 @@ public class MatrizD {
         String G = "digraph G{\nnode [shape= circle] \n";
         nodoM x =inicio.getAbajo();
         nodoM y = inicio.getAbajo();
-        System.out.println("GRAFICAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+       // System.out.println("GRAFICAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         while(y!=null){
             G+=y.getIdy()+"[label=\""+y.getDirectorio()+"\"];\n";
             while (x!=null) {

@@ -8,8 +8,12 @@ node [shape= circle]
 2->4
 2->5
 3[label="b"];
-3->6
-4[label="fichero"];
-5[label="matriz"];
-6[label="brisa"];
+4[label="c"];
+4->6
+4->7
+5[label="d"];
+6[label="m"];
+6->8
+7[label="d"];
+8[label="gg"];
 }

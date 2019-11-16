@@ -13,6 +13,7 @@ import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -40,101 +41,7 @@ public class ArbolAVL {
         raiz = null;
     }
     //Funcion para insertar datos
-    public void insertar(String archivo,String contenido){
-    raiz = insertar(archivo, contenido,raiz);
-    }
-// fincionque devuelve la alturaa de un nodo
-    private int altura(NodoAVL t){  
-        return t == null ?-1 : t.altura;
-    }
-    // fincion que devuelve el nodo mas a la izquierda o derecha
-    private int max(int Izq,int der){
-              return Izq > der ? Izq : der;
-    }
-    
-    // metodo para insertar
-    private NodoAVL insertar(String a,String c,NodoAVL t){
-        if (t== null){
-            t = new NodoAVL(a,c);
-        }else if(a.compareToIgnoreCase(t.archivo)<0){
-            t.izquierda = insertar(a,c,t.izquierda);
-            if(altura(t.izquierda) - altura(t.derecha)==2)
-                if(a.compareToIgnoreCase(t.izquierda.archivo)<0){
-                    t = rotarConHijoIzquierdo(t);
-                }else{
-                    t = dobleRotacionConHijoIzquierdo(t);
-                }
-        }else if(a.compareToIgnoreCase(t.archivo) >0){
-            t.derecha = insertar(a,c, t.derecha);
-            
-            if(altura(t.derecha) - altura(t.izquierda) == 2)
-                if(a.compareToIgnoreCase(t.derecha.archivo)>0){
-                    t= rotarConHijoDerecho(t);
-                }else{
-                    t=dobleRotacionConHijoDerecho(t);
-                }
-            
-        }
-        else{
-            System.out.println("Nombre duplicada");
-        }
-        
-        t.fe=altura(t.derecha) - altura(t.izquierda);
-        
-        t.altura = max(altura(t.izquierda), altura(t.derecha))+1;
-        return t;
-    }
-    
-    // rotar el arbol cpn el nodo izquierdo y sus hijos
-   private NodoAVL rotarConHijoIzquierdo(NodoAVL k2){
-   NodoAVL k1 =k2.izquierda;
-   k2.izquierda = k1.derecha;
-   k1.derecha = k2;
-   k2.altura = max(altura(k2.izquierda), altura(k2.derecha))+1;
-   k1.altura = max(altura(k1.izquierda),k2.altura)+1;
-   return k1;
-   } 
    
-   //rotar con el arbol con el nodo derecho y su hijo
-   private NodoAVL rotarConHijoDerecho(NodoAVL k1){
-       NodoAVL k2 = k1.derecha;
-       k1.derecha = k2.izquierda;
-       k2.izquierda = k1;
-       k1.altura = max(altura(k1.izquierda), altura(k1.derecha))+1;
-       k2.altura = max(altura(k2.derecha),k1.altura)+1;
-       return k2;
-   }
-   
-   //doble rotacion con del arbol por la derecha
-   
-   private NodoAVL dobleRotacionConHijoIzquierdo(NodoAVL k3){
-   k3.izquierda = rotarConHijoDerecho(k3.izquierda);
-   return rotarConHijoIzquierdo(k3);
-   }
-   
-   //doble rotacion con nodos del arbol por la izquierda
-   
-   private NodoAVL dobleRotacionConHijoDerecho(NodoAVL k1){
-       k1.derecha = rotarConHijoDerecho(k1.derecha);
-       return rotarConHijoDerecho(k1);
-   }
-   
-   
-   //funcion para contar nodos
-   public int contarNodos(){
-       return contarNodos(raiz);
-   }
-   
-   private int contarNodos(NodoAVL r){
-       if(r==null){
-           return 0;
-       }else{
-       int i = 1;
-       i += contarNodos(r.izquierda);
-       i += contarNodos(r.derecha);
-       return i;
-       }
-   }
    //funcion para buscar un dato dentro del arbol
    public boolean buscar(String id){
    return buscar(raiz,id);
@@ -157,7 +64,7 @@ public class ArbolAVL {
        return encontrado;
    }
    
-   //metodo para imprimir datos inorder  
+
    
    public void inorder(){
          inorder(raiz);
@@ -170,41 +77,11 @@ public class ArbolAVL {
              inorder(r.derecha);
          }
      }
-    
-   //metodo para imprimir datos preorder
-     
-       public void preorder(){
-         preorder(raiz);
-     }
-
-     private void preorder(NodoAVL r){
-         if (r != null){
-             System.out.println(r.archivo +" altura: "+r.altura+ " fe: "+r.fe);
-             preorder(r.izquierda);             
-             preorder(r.derecha);
-         }
-     }  
-     
-     //metodo para imprimir posorder
-     
-      public void postorder(){
-         postorder(raiz);
-     }
-
-     private void postorder(NodoAVL r){
-         if (r != null)
-         {
-             postorder(r.izquierda);             
-             postorder(r.derecha);
-             System.out.print(r.archivo);
-             
-         }
-     }  
      
      public String Graficar(NodoAVL r){
          if(r!=null){
          
-         g+=r.archivo+"[label=\" Carnet: "+r.archivo+"\\n Contenido: "+r.contenido+" \\n Altura:"+r.altura+" \\n FE: "+r.fe+"\"]\n";
+         g+=r.archivo+"[label=\" Carnet: "+r.archivo+"\\n Contenido: "+r.contenido+" \\n Altura:"+r.fe+" \\n FE: "+r.altura+"\"]\n";
          if(r.izquierda!=null){
              g+=r.archivo+"->"+r.izquierda.archivo+"\n";
          }
@@ -220,11 +97,11 @@ public class ArbolAVL {
      }
      
      private void G(){
-         String rul=  ".\\src\\proyecto2\\ArbolAVL.txt";
+         String rul=  "ArbolAVL.txt";
          g+="digraph G{\n";
          g+="node [shape= box];\n rankdir=TB\n";
          Graficar(raiz);
-         g+="}";
+         //g+="}";
          
         try {
             graph =new BufferedWriter(new FileWriter(rul));
@@ -237,7 +114,7 @@ public class ArbolAVL {
      }
      
       private void dot(){
-       String pro= "dot  -Tpng .\\src\\proyecto2\\ArbolAVL.txt -o .\\src\\proyecto2\\ArbolAVL.png";
+       String pro= "dot  -Tpng ArbolAVL.txt -o ArbolAVL.png";
            try {
                ProcessBuilder p= new ProcessBuilder();
        p.command("cmd.exe","/c",pro);
@@ -260,7 +137,8 @@ public class ArbolAVL {
     public void getAVL(){
         G();
         dot();
-        open();
+        g = "";
+       // open();
     
     }
     
@@ -271,7 +149,7 @@ public class ArbolAVL {
          l.eliminar(archivo);
          System.out.println("fin");
          l.mostrar();
-        llenar();
+        
         
      }
 
@@ -284,15 +162,15 @@ public class ArbolAVL {
          }
      }
     
-    public void Modify(String archivo, String nuevo){
+    public void Modify(String archivo, String nuevo, String contenido){
          modify(raiz);
          
          l.mostrar();
          System.out.println("------------");
-         l.Modificar(archivo,nuevo);
+         l.Modificar(archivo,nuevo,contenido);
          System.out.println("fin");
          l.mostrar();
-        llenar();
+        
         
      }
 
@@ -305,17 +183,7 @@ public class ArbolAVL {
          }
      }
      
-     private void llenar(){
-         raiz = null;
-         NodoAVL actual = l.primero;
-         while (actual!=null) {             
-             insertar(actual.archivo, actual.contenido);
-             actual = actual.derecha;
-         }
-         System.out.println("LLENADO");
-         l.primero=null;
-         inorder();
-     }
+
      
       public String abrir(){
         String url;
@@ -352,12 +220,121 @@ public class ArbolAVL {
           for (int i = 1; i < Salto.length; i++) {
               coma=Salto[i].split(",");
               System.out.println(coma[0]+"   "+coma[1]);
-              insertar(coma[0], coma[1]);
-              System.out.println("");
+              insert(coma[0], coma[1]);
+             // System.out.println("");
               
           }
+          
+          getAVL();
           }
-      
-          //getAVL();
+
+    public int getFe(NodoAVL r){
+        if(r==null){
+        
+        return -1;
+        }else{
+            return r.getFe();
+        }
+    }
+    
+    public NodoAVL RI(NodoAVL  r){
+        NodoAVL n = r.getIzquierda();
+        r.setIzquierda(n.getDerecha());
+        n.setDerecha(r);
+        r.setFe(Math.max(getFe(r.getIzquierda()), getFe(r.getDerecha()))+1);
+        n.setFe(Math.max(getFe(n.getIzquierda()), getFe(n.getDerecha()))+1);
+        return n;
+
+    }
+    
+    public NodoAVL RD(NodoAVL r){
+        NodoAVL n = r.getDerecha();
+        r.setDerecha(n.getIzquierda());
+        n.setIzquierda(r);
+        r.setFe(Math.max(getFe(r.getIzquierda()), getFe(r.getDerecha()))+1);
+        n.setFe(Math.max(getFe(n.getIzquierda()), getFe(n.getDerecha()))+1);
+        return n;
+    
+    }
+    
+    
+    public NodoAVL RII(NodoAVL r){
+        NodoAVL n;
+        r.setIzquierda(RD(r.getIzquierda()));
+        n=RI(r);
+        return n;
+        
+    }
+    public NodoAVL RDD(NodoAVL r){
+        NodoAVL n;
+        r.setDerecha(RI(r.getDerecha()));
+        n = RD(r);
+        return n;
+    }
+    
+    public NodoAVL insert(NodoAVL nuevo, NodoAVL r){
+        NodoAVL n = r;
+        if(nuevo.getArchivo().compareToIgnoreCase(r.getArchivo())<0){
+            if(r.getIzquierda()==null){
+                r.setIzquierda(nuevo);
+            }else{
+                r.setIzquierda(insert(nuevo, r.getIzquierda()));
+                if(getFe(r.getIzquierda())-getFe(r.getDerecha())==2){
+                    if(nuevo.getArchivo().compareToIgnoreCase(r.getIzquierda().getArchivo())<0){
+                        n=RI(r);
+                    }else{
+                        n = RII(r);
+                    }
+                
+                }
+            }
+        
+        }else if(nuevo.getArchivo().compareToIgnoreCase(r.getArchivo())>0){
+            if(r.getDerecha()==null){
+                r.setDerecha(nuevo);
+            }else{
+                n.setDerecha(insert(nuevo, r.getDerecha()));
+                if(getFe(r.getDerecha())-getFe(r.getIzquierda())==2){
+                    if(nuevo.getArchivo().compareToIgnoreCase(r.getDerecha().getArchivo())>0){
+                        n=RD(r);
+                    }else{
+                        n = RDD(r);
+                    }
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "dato duplicado");
+        
+        }
+        
+        if(r.getIzquierda()==null && r.getDerecha()!=null){
+            r.setFe(r.getDerecha().getFe()+1);
+            
+            
+        }else if(r.getIzquierda()!=null && r.getDerecha()==null){
+            r.setFe(r.getIzquierda().getFe()+1);
+            
+        }else{
+            r.setFe(Math.max(getFe(r.getIzquierda()), getFe(r.getDerecha()))+1);
+            
+        
+        }
+            r.setAltura(getFe(r.getDerecha())-getFe(r.getIzquierda()));
+            
+    return n;
+    }
+    
+    public void insert(String  archivo, String contenido){
+    
+        NodoAVL nuevo = new NodoAVL(archivo, contenido);
+        if(raiz==null){
+            raiz  = nuevo;
+        }else{
+            raiz = insert(nuevo, raiz);
+        }
+        getAVL();
+    }
+    
+    
       }
 

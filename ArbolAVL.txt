@@ -1,17 +1,41 @@
 digraph G{
 node [shape= box];
  rankdir=TB
-es[label=" Carnet: es\n Contenido: x \n Altura:3 \n FE: 1"]
-es->chara
-es->mi
-chara[label=" Carnet: chara\n Contenido: x \n Altura:1 \n FE: 1"]
-chara->de 
-de [label=" Carnet: de \n Contenido: x \n Altura:0 \n FE: 0"]
-mi[label=" Carnet: mi\n Contenido: x \n Altura:2 \n FE: 1"]
-mi->hola
-mi->nombre
-hola[label=" Carnet: hola\n Contenido: x \n Altura:0 \n FE: -1"]
-nombre[label=" Carnet: nombre\n Contenido: x \n Altura:1 \n FE: 1"]
-nombre->undertale
-undertale[label=" Carnet: undertale\n Contenido: x \n Altura:0 \n FE: 0"]
-}}
+d[label=" Carnet: d\n Contenido: d \n Altura:4 \n FE: 1"]
+d->b
+d->Jose
+b[label=" Carnet: b\n Contenido:  \n Altura:2 \n FE: 0"]
+b->a
+b->c
+a[label=" Carnet: a\n Contenido:  \n Altura:1 \n FE: 1"]
+a->andres
+andres[label=" Carnet: andres\n Contenido: 10 \n Altura:0 \n FE: 0"]
+c[label=" Carnet: c\n Contenido: f \n Altura:1 \n FE: 1"]
+c->caros
+caros[label=" Carnet: caros\n Contenido: 5 \n Altura:0 \n FE: 0"]
+Jose[label=" Carnet: Jose\n Contenido: 1 \n Altura:3 \n FE: 0"]
+Jose->h
+Jose->m
+h[label=" Carnet: h\n Contenido:  \n Altura:2 \n FE: -1"]
+h->e
+h->i
+e[label=" Carnet: e\n Contenido: e \n Altura:1 \n FE: 0"]
+e->dennis
+e->estuardo
+dennis[label=" Carnet: dennis\n Contenido: 7 \n Altura:0 \n FE: 0"]
+estuardo[label=" Carnet: estuardo\n Contenido: 11 \n Altura:0 \n FE: 0"]
+i[label=" Carnet: i\n Contenido:  \n Altura:0 \n FE: 0"]
+m[label=" Carnet: m\n Contenido:  \n Altura:2 \n FE: 0"]
+m->juan 
+m->randy
+juan [label=" Carnet: juan \n Contenido: 9 \n Altura:1 \n FE: 1"]
+juan ->josue
+juan ->luis
+josue[label=" Carnet: josue\n Contenido: 4 \n Altura:0 \n FE: 0"]
+luis[label=" Carnet: luis\n Contenido: 12 \n Altura:0 \n FE: 0"]
+randy[label=" Carnet: randy\n Contenido: 6 \n Altura:1 \n FE: -1"]
+randy->mariasamantha
+randy->victor
+mariasamantha[label=" Carnet: mariasamantha\n Contenido: 8 \n Altura:0 \n FE: 0"]
+victor[label=" Carnet: victor\n Contenido: 2 \n Altura:0 \n FE: 0"]
+}

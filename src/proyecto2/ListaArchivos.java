@@ -59,11 +59,12 @@ public class ListaArchivos {
         }
      }
     
-    public void Modificar(String archivo, String Nuevo){
+    public void Modificar(String archivo, String Nuevo, String Contendio){
        NodoAVL actual=primero;
         while (actual!=null) {            
             if(actual.archivo.equals(archivo)){
                 actual.archivo=Nuevo;
+                actual.contenido= Contendio;
             }
             actual = actual.derecha;
         }

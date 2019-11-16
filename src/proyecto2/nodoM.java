@@ -87,20 +87,14 @@ public class nodoM {
     }
     
     
-    public void insertarArchivo(String Archivo, String Contenido){
-        a.insertar(Archivo,Contenido);
-    
-    }
+   
     
     public void  eliminarArchivo(String Archivo){
         a.Delete(Archivo);
     
     }
     
-    public void modificarArchivo(String Archivo,String Nuevo){
-        a.Modify(Archivo, Nuevo);
-    
-    }
+   
     
     public void GraficarArbol(){
     

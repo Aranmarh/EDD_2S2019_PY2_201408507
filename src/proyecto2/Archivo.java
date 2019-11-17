@@ -27,8 +27,9 @@ public class Archivo extends javax.swing.JFrame {
     usuario u;
     Login l;
     tablaHash th;
+    Bitacora b;
     
-    int arbol;
+    int arbol=0;
     
     ///mover carpetas///
     int carpetaant = 1; 
@@ -58,6 +59,7 @@ public class Archivo extends javax.swing.JFrame {
         this.matrix = u.getMd();
         this.l = l;
         this.th = th;
+        this.b=l.b;
         this.path.setText("/");
     }
 
@@ -262,9 +264,19 @@ public class Archivo extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(153, 153, 153));
         jButton8.setText("Compartir");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton10.setBackground(new java.awt.Color(153, 153, 153));
         jButton10.setText("Descarga");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setBackground(new java.awt.Color(153, 153, 153));
         jButton11.setText("Reporte");
@@ -430,7 +442,9 @@ public class Archivo extends javax.swing.JFrame {
       
       Object seleccion=  JOptionPane.showInputDialog(this, "Ingrese el nombre de la nueva Carpeta");
       matrix.ingresarCarpeta(carpetaA, seleccion.toString());
+      b.push(u.getName(), "Creo  carpeta: "+seleccion.toString());
       mostrarbotones();
+      
       //matrix.GraficaG();
       
         
@@ -477,10 +491,16 @@ public class Archivo extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        Object seleccion=  JOptionPane.showInputDialog(this, "Ingrese el Archivo a eliminar");
+       if(arbol==1){
          ArbolAVL r = matrix.buscarP(carpetaA).getA();
-        r.Delete(seleccion.toString());
+         r.Delete(Archivo);
         mostrarbotones();
+        JOptionPane.showMessageDialog(this, "se elimino el archivo:"+Archivo);
+        b.push(u.getName(),"Elimino el archivo"+Archivo);
+        arbol=0;
+       }else{
+           JOptionPane.showMessageDialog(this, "seleccione el archivo a eliminar");
+       }
         
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -500,6 +520,7 @@ public class Archivo extends javax.swing.JFrame {
         ArbolAVL r = matrix.buscarP(carpetaA).getA();
        
         r.insert(a.getText(), c.getText());
+        b.push(u.getName(),"creo un archivo");
         r.inorder();
         mostrarbotones();
         
@@ -512,6 +533,7 @@ public class Archivo extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArbolAVL r = matrix.buscarP(carpetaA).getA();
         r.Cargamasiva();
+        b.push(u.getName(),"Ralizo una carga masiva de archivos" );
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -532,28 +554,30 @@ public class Archivo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         matrix.modificar(carpetaA, carpetaS, Archivo);
+        b.push(u.getName(), "Modifico una carpeta");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         JTextField a = new JTextField(5);
-        JTextField c = new JTextField(5);
-        JTextArea contendio  = new JTextArea(10, 10);
+        if(arbol==1){
+         ArbolAVL r = matrix.buscarP(carpetaA).getA();
+         modificar();
         
-        JPanel option = new JPanel();
-        option.add(new Label("Ingrese el archivo a modificar"));
-        option.add(a);
-        option.add(Box.createHorizontalStrut(15));
-        option.add(new Label("Ingrese el nombre del archivo modificado"));
-        option.add(c);
-        option.add(new Label("Ingrese el nuevo contenido"));
-        option.add(contendio);
-        int result = JOptionPane.showConfirmDialog(this, option,"Ingrese el nuevo archivo",JOptionPane.OK_CANCEL_OPTION);
-        if(result ==JOptionPane.OK_OPTION){
-        ArbolAVL r = matrix.buscarP(carpetaA).getA();
-        r.Modify(a.getText(), c.getText(),contendio.getText());
-        mostrarbotones();
-        }
+        JOptionPane.showMessageDialog(this, "se Modifico el archivo:"+Archivo);
+       }else{
+           JOptionPane.showMessageDialog(this, "seleccione el archivo a modificar");
+       }
+        
+
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        b.push(u.getName(),"Compartio el Archivo:" );
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -561,9 +585,7 @@ public class Archivo extends javax.swing.JFrame {
 
     public void crearCarpeta(){
         nodoM actual = u.getMd().buscarP(carpetaA).getDerecha();
-       
-       
-        
+
         Ventana.removeAll();
         while (actual!=null) {    
             if(actual.getIdx()!=actual.getIdy()){
@@ -571,13 +593,10 @@ public class Archivo extends javax.swing.JFrame {
            JButton nuevo =  b.MakeButtonArch();
             Ventana.add(nuevo);
             }
-            
-            
-            
+
             actual = actual.getDerecha();
         }
-        
-           
+
         Boton b = new Boton(this,"Regresar",1,carpetaA);
         JButton nuevo =  b.MakeButtonArch();
         Ventana.add(nuevo);
@@ -604,7 +623,7 @@ public class Archivo extends javax.swing.JFrame {
     
     }
     
-      private void inorder(NodoAVL r){
+    private void inorder(NodoAVL r){
          if (r != null){
              inorder(r.izquierda);
              Boton b  = new Boton(this, r.archivo, r.contenido);
@@ -615,21 +634,31 @@ public class Archivo extends javax.swing.JFrame {
          }
       }
     
-    
-    
-    ///parte de matriz////////////////////////////////////////////////////////////////////////////
-      
-    public void dot(){
-       String pro= "neato -Tpng -o .\\src\\proyecto2\\matriz1.png matriz.dot";
-           try {
-               ProcessBuilder p= new ProcessBuilder();
-       p.command("cmd.exe","/c",pro);
-       p.start();
-           } catch (Exception e) {
-           }
-    
+    private void modificar(){
+                    
+        
+        JTextField c = new JTextField(5);
+        JTextArea contendio  = new JTextArea(10, 10);
+        
+        JPanel option = new JPanel();
+        option.add(Box.createHorizontalStrut(15));
+        option.add(new Label("Ingrese el nombre del archivo modificado"));
+        c.setText(Archivo);
+        option.add(c);
+        option.add(new Label("Ingrese el nuevo contenido"));
+        contendio.setText(Contenido);
+        option.add(contendio);
+        int result = JOptionPane.showConfirmDialog(this, option,"Ingrese el nuevo archivo",JOptionPane.OK_CANCEL_OPTION);
+        if(result ==JOptionPane.OK_OPTION){
+        ArbolAVL r = matrix.buscarP(carpetaA).getA();
+        r.Modify(Archivo, c.getText(),contendio.getText());
+        mostrarbotones();
+        }
     
     }
+
+      
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Nombre;

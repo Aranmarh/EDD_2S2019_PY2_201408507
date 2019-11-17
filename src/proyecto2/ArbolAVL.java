@@ -38,7 +38,7 @@ public class ArbolAVL {
     
     //crear un arbol logico vacio 
     public void CrearVacio(){
-        raiz = null;
+        this.raiz = null;
     }
     //Funcion para insertar datos
    
@@ -144,11 +144,15 @@ public class ArbolAVL {
     
     public void Delete(String archivo){
          delete(raiz);
-         l.mostrar();
-         System.out.println("------------");
          l.eliminar(archivo);
-         System.out.println("fin");
-         l.mostrar();
+         CrearVacio();
+         NodoAVL actual =l.primero;
+         while (actual!=null) {            
+             insert(actual.getArchivo(), actual.getContenido());
+             actual = actual.getDerecha();
+        }
+         l.primero=null;
+         //l.mostrar();
         
         
      }
@@ -164,12 +168,14 @@ public class ArbolAVL {
     
     public void Modify(String archivo, String nuevo, String contenido){
          modify(raiz);
-         
-         l.mostrar();
-         System.out.println("------------");
          l.Modificar(archivo,nuevo,contenido);
-         System.out.println("fin");
-         l.mostrar();
+         CrearVacio();
+         NodoAVL actual =l.primero;
+         while (actual!=null) {            
+             insert(actual.getArchivo(), actual.getContenido());
+             actual = actual.getDerecha();
+        }
+         l.primero=null;
         
         
      }

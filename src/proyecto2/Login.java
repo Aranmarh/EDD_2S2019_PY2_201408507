@@ -15,13 +15,15 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 Inicio i;
 tablaHash th;
+Bitacora b;
     /** Creates new form Login */
-    public Login(Inicio i, tablaHash th) {
+    public Login(Inicio i, tablaHash th, Bitacora b) {
         initComponents();
         this.setVisible(true);
         this.setTitle("Login");
         this.i=i;
         this.th = th;
+        this.b = b;
     }
 
     /** This method is called from within the constructor to

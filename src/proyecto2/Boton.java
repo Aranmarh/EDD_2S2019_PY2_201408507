@@ -73,6 +73,7 @@ public class Boton {
                arch.Archivo=Archi;
                arch.Contenido=Contenido;
                System.out.println("Nombre A:"+Archi+" Contenido:"+Contenido);
+               arch.arbol=1;
            }
        });
         

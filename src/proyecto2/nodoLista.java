@@ -14,9 +14,23 @@ public class nodoLista {
     usuario u;
     nodoLista siguiente;
     nodoLista anterior;
+    
+    
+    String accion;
+    String usu;
+    String date;
 
     public nodoLista(int id) {
         this.id = id;
+        this.siguiente = null;
+        this.anterior = null;
+    }
+    
+     public nodoLista(int id,String usu,String accion, String date) {
+        this.id = id;
+        this.usu=usu;
+        this.accion = accion;
+        this.date = date;
         this.siguiente = null;
         this.anterior = null;
     }
@@ -51,6 +65,30 @@ public class nodoLista {
 
     public void setAnterior(nodoLista anterior) {
         this.anterior = anterior;
+    }
+
+    public String getAccion() {
+        return accion;
+    }
+
+    public void setAccion(String accion) {
+        this.accion = accion;
+    }
+
+    public String getUsu() {
+        return usu;
+    }
+
+    public void setUsu(String usu) {
+        this.usu = usu;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
     
     

@@ -1,0 +1,20 @@
+digraph D { 
+  node [shape=plaintext]
+   nodo [
+  label=< 
+ <table border="0px">
+<tr><td bgcolor="#E6E6FA">  USUARIO   </td><td bgcolor="#E6E6FA">  ACCION  </td><td bgcolor="#E6E6FA">FECHA</td></tr>
+
+<tr><td bgcolor="lightblue">  Maria  </td><td bgcolor="lightblue">   Agregar Archivo  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
+
+<tr><td bgcolor="lightblue">  Maria  </td><td bgcolor="lightblue">   Agregar Carpeta  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
+
+<tr><td bgcolor="lightblue">  Maria  </td><td bgcolor="lightblue">   Eliminar  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
+
+<tr><td bgcolor="lightblue">  Maria  </td><td bgcolor="lightblue">   modifico  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
+
+<tr><td bgcolor="lightblue">  Aran  </td><td bgcolor="lightblue">   modifico  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
+
+ </table>
+ >
+ ];}

@@ -116,7 +116,10 @@ public class tablaHash {
      
      }
      
-     
+    public usuario getUsusario(String usu){
+    
+     return lista.getU(usu);
+    } 
      
      
       public String abrir(){

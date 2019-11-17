@@ -41,11 +41,11 @@ public class ListaArchivos {
     
     public void eliminar(String archivo){
        NodoAVL actual=primero;
-       
-        if (primero.archivo.equals(archivo)) {
+       archivo = archivo.trim();
+        if (primero.archivo.equalsIgnoreCase(archivo)) {
             primero=primero.derecha;
         }else{
-            while(actual.derecha!=null&& actual.derecha.archivo!=archivo){
+            while(actual.derecha!=null&& actual.derecha.archivo.equalsIgnoreCase(archivo)==false){
                    actual= actual.derecha;
                 }
                  

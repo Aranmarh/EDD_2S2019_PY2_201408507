@@ -58,7 +58,7 @@ public class lista {
     while(actual!=null){
         System.out.println(actual.getId());
         if (actual.getU()!=null) {
-            System.out.println("ID  "+actual.getU().getName()+" Cotraseña"+actual.getU().getContraseña());
+            System.out.println("ID  "+actual.getU().getName()+" Contrasena"+actual.getU().getContraseña());
         }else{
             System.out.println("DISPONIBLE");
         
@@ -167,6 +167,30 @@ public class lista {
     
     }
     
+    public boolean isU(String nombre){
+        nodoLista actual = primero;
+    while (actual!=null) {     
+            usuario u = actual.getU();
+            if(u!=null){
+                if(u.getName().equals(nombre)){
+                break;
+                }
+            }
+            actual = actual.getSiguiente();
+        }
+        if(actual!=null){
+            usuario u = actual.getU();
+            if(u.getName().equals(nombre)){
+                return false;
+            }else{
+                return true;
+            }
+        }else{
+            return true;
+        }
+    
+    }
+    
     
     
     public void graphviz(){
@@ -179,7 +203,7 @@ public class lista {
             while(actual!=null){
                 t+="\n<tr><td bgcolor=\"lightblue\">"+actual.getId()+"</td>";
                 if(actual.getU()!=null){
-                t+="<td bgcolor=\"gray\">ID: "+actual.getU().getName()+" Contraseña: "+actual.getU().getContraseña()+"</td>";
+                t+="<td bgcolor=\"gray\">ID: "+actual.getU().getName()+" Contrasena: "+actual.getU().getContraseña()+"</td>";
                 }
                 t+="</tr>";
                 

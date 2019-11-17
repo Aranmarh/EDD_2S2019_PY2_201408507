@@ -5,6 +5,8 @@
  */
 package proyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aran
@@ -142,8 +144,18 @@ public class Registrer extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        th.crecer(jTextField1.getText(), jTextField2.getText());
-        th.Graficar();
+        if(th.isU(jTextField1.getText())){
+            if(jTextField2.getText().length()>=8){
+                th.crecer(jTextField1.getText(), jTextField2.getText());
+                th.Graficar();
+            }else{
+                JOptionPane.showMessageDialog(this, "La contraseña debe ser mas de 8 caractres");
+            }
+            
+        }else{
+              JOptionPane.showMessageDialog(this, "El ID ya existe");
+        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

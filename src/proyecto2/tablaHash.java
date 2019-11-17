@@ -107,6 +107,9 @@ public class tablaHash {
          return lista.login(name, contraseña);
      }
      
+     public boolean isU(String name){
+         return lista.isU(name);
+     }
      
      public void Graficar(){
          lista.graphviz();
@@ -154,8 +157,11 @@ public class tablaHash {
        Salto= c.split("\n");
           for (int i = 1; i < Salto.length; i++) {
              coma= Salto[i].split(",");
+             if(isU(coma[0])){
+                 if(coma[1].length()>=8){
                 crecer(coma[0], coma[1]);
-
+                }
+             }
           }
       
       Graficar();

@@ -309,22 +309,12 @@ public class MatrizD {
     
     }
     
-    public void modificar(int x, int m, String s){
-         nodoM  a = buscarP(x);
-         nodoM p = a;
-         while(a!=null){
-             if(m==a.getIdx()){
-                 System.out.println("se encontro");
-                 break;
-             }
-         
-         a= a.getDerecha();
-         }
-         if(a!=null){
-             a.getArriba().setDirectorio(s);
-             a.setDirectorio(p.getDirectorio()+"/"+s);
-             buscarP(m).setDirectorio(s);
-         }
+    public void modificar(int x, String s){
+         nodoM  actual = buscarH(x);
+         actual.setDirectorio(s);
+         actual.getAbajo().setDirectorio(s);
+         nodoM P = buscarP(x);
+         P.setDirectorio(s);
     
     
     }

@@ -61,6 +61,7 @@ public class Archivo extends javax.swing.JFrame {
         this.th = th;
         this.b=l.b;
         this.path.setText("/");
+        mostrarbotones();
     }
 
     /**
@@ -81,7 +82,6 @@ public class Archivo extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
@@ -158,14 +158,6 @@ public class Archivo extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(153, 153, 153));
-        jButton5.setText("Compartir");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         jButton9.setBackground(new java.awt.Color(153, 153, 153));
         jButton9.setText("Reporte Matriz");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -199,17 +191,16 @@ public class Archivo extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(57, 57, 57))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2))
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -222,13 +213,11 @@ public class Archivo extends javax.swing.JFrame {
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jButton9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton14)
                 .addContainerGap())
         );
@@ -442,7 +431,7 @@ public class Archivo extends javax.swing.JFrame {
       
       Object seleccion=  JOptionPane.showInputDialog(this, "Ingrese el nombre de la nueva Carpeta");
       matrix.ingresarCarpeta(carpetaA, seleccion.toString());
-      b.push(u.getName(), "Creo  carpeta: "+seleccion.toString());
+      b.push(u.getName(), "Creo carpeta: "+seleccion.toString());
       mostrarbotones();
       
       //matrix.GraficaG();
@@ -458,11 +447,6 @@ public class Archivo extends javax.swing.JFrame {
         //dot();
         
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        crearCarpeta();
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -494,14 +478,14 @@ public class Archivo extends javax.swing.JFrame {
        if(arbol==1){
          ArbolAVL r = matrix.buscarP(carpetaA).getA();
          r.Delete(Archivo);
-        mostrarbotones();
         JOptionPane.showMessageDialog(this, "se elimino el archivo:"+Archivo);
-        b.push(u.getName(),"Elimino el archivo"+Archivo);
-        arbol=0;
+        b.push(u.getName(),"Elimino el archivo  "+Archivo);
+        mostrarbotones();
+        
        }else{
            JOptionPane.showMessageDialog(this, "seleccione el archivo a eliminar");
        }
-        
+        arbol=0;
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -520,7 +504,7 @@ public class Archivo extends javax.swing.JFrame {
         ArbolAVL r = matrix.buscarP(carpetaA).getA();
        
         r.insert(a.getText(), c.getText());
-        b.push(u.getName(),"creo un archivo");
+        b.push(u.getName(),"Creo el archivo  "+a.getText());
         r.inorder();
         mostrarbotones();
         
@@ -534,6 +518,7 @@ public class Archivo extends javax.swing.JFrame {
         ArbolAVL r = matrix.buscarP(carpetaA).getA();
         r.Cargamasiva();
         b.push(u.getName(),"Ralizo una carga masiva de archivos" );
+        mostrarbotones();
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -548,35 +533,63 @@ public class Archivo extends javax.swing.JFrame {
         getPath();
         if(carpetaA==1 && carpetaS == 1){
         path.setText("/");
-        
+        mostrarbotones();
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        matrix.modificar(carpetaA, carpetaS, Archivo);
-        b.push(u.getName(), "Modifico una carpeta");
+        if(arbol==0){
+            Object seleccion=  JOptionPane.showInputDialog(this, "Ingrese el nuevo nombre de la carpeta:");
+            matrix.modificar(carpetaS, seleccion.toString());
+            b.push(u.getName(), "Modifico una carpeta ");
+            mostrarbotones();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         if(arbol==1){
          ArbolAVL r = matrix.buscarP(carpetaA).getA();
          modificar();
-        
         JOptionPane.showMessageDialog(this, "se Modifico el archivo:"+Archivo);
+        b.push(u.getName(),"Modifico el archivo  "+Archivo);
+        mostrarbotones();
        }else{
            JOptionPane.showMessageDialog(this, "seleccione el archivo a modificar");
        }
-        
+        arbol=0;
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        b.push(u.getName(),"Compartio el Archivo:" );
+        if(arbol==1){
+            Object seleccion=  JOptionPane.showInputDialog(this, "Ingrese el nombre del Usuario a compartir carpeta");
+            try {
+                usuario u=   th.getUsusario(seleccion.toString());
+                if(u!=null){
+                    u.getMd().buscarP(1).getA().insert(Archivo, Contenido);
+                }else{
+                    JOptionPane.showMessageDialog(this, "El usuario no existe");
+                }
+            } catch (Exception e) {
+                System.out.println("regreso");
+            }
+            b.push(u.getName(),"Compartio el Archivo a"+seleccion.toString());
+        }else{
+            JOptionPane.showMessageDialog(this, "Seleccione un archivo");
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        if(arbol==1){
+            Texto t = new Texto(Archivo, Contenido);
+            b.push(u.getName(),"Se descargo el archivo "+Archivo );
+            
+        }else{
+            JOptionPane.showMessageDialog(this, "Seleccione un archivo");
+        }
+        arbol=0;
     }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
@@ -673,7 +686,6 @@ public class Archivo extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;

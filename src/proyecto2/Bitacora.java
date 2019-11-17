@@ -28,13 +28,14 @@ public class Bitacora {
         this.ultimo = null;
     }
     
-    public String gethora(){
-        String s  = hourdateFormat.format(date);
+    public String gethora(Date Date){
+        String s  = hourdateFormat.format(Date);
     return s;
     }
     
      public void push(String usu, String accion){
-        nodoLista nuevo = new nodoLista(id,usu, accion, gethora());
+        Date date = new Date();
+        nodoLista nuevo = new nodoLista(id,usu, accion, gethora(date));
         id++;
          if (primero==null) {
                primero=nuevo; 
@@ -48,6 +49,8 @@ public class Bitacora {
              
          
          }
+         graphviz();
+         dot();
      }
     
      

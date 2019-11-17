@@ -1,6 +1,5 @@
 digraph G{
 node [shape= box];
  rankdir=TB
-es un gato[label=" Carnet: es un gato\n Contenido: miau miau soy un gato
-muy arisco \n Altura:0 \n FE: 0"]
+Bella[label=" Carnet: Bella\n Contenido: Ilusion de Maria \n Altura:0 \n FE: 0"]
 }

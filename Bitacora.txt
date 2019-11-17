@@ -5,15 +5,11 @@ digraph D {
  <table border="0px">
 <tr><td bgcolor="#E6E6FA">  USUARIO   </td><td bgcolor="#E6E6FA">  ACCION  </td><td bgcolor="#E6E6FA">FECHA</td></tr>
 
-<tr><td bgcolor="lightblue">  Maria  </td><td bgcolor="lightblue">   Agregar Archivo  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
+<tr><td bgcolor="lightblue">  Jose  </td><td bgcolor="lightblue">   Compartio el Archivo aAran  </td><td bgcolor="lightblue">   16:28:43 17/11/2019   </td></tr>
 
-<tr><td bgcolor="lightblue">  Maria  </td><td bgcolor="lightblue">   Agregar Carpeta  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
+<tr><td bgcolor="lightblue">  Jose  </td><td bgcolor="lightblue">   creo un archivo  </td><td bgcolor="lightblue">   16:28:43 17/11/2019   </td></tr>
 
-<tr><td bgcolor="lightblue">  Maria  </td><td bgcolor="lightblue">   Eliminar  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
-
-<tr><td bgcolor="lightblue">  Maria  </td><td bgcolor="lightblue">   modifico  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
-
-<tr><td bgcolor="lightblue">  Aran  </td><td bgcolor="lightblue">   modifico  </td><td bgcolor="lightblue">   17:47:46 16/11/2019   </td></tr>
+<tr><td bgcolor="lightblue">  Jose  </td><td bgcolor="lightblue">   Creo  carpeta: Maria  </td><td bgcolor="lightblue">   16:28:43 17/11/2019   </td></tr>
 
  </table>
  >

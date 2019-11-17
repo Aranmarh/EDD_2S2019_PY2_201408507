@@ -77,6 +77,11 @@ Bitacora b = new Bitacora();
 
         jButton6.setFont(new java.awt.Font("Papyrus", 1, 18)); // NOI18N
         jButton6.setText("Bitacora");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,6 +158,13 @@ Bitacora b = new Bitacora();
         th.Cargamasiva();
         //
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        b.graphviz();
+        b.dot();
+        ReporteB b = new ReporteB();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

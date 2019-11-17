@@ -368,7 +368,7 @@ public class Archivo extends javax.swing.JFrame {
         Ventana.setLayout(new java.awt.GridLayout(0, 3));
         jScrollPane1.setViewportView(Ventana);
 
-        path.setFont(new java.awt.Font("Papyrus", 0, 18)); // NOI18N
+        path.setFont(new java.awt.Font("Papyrus", 0, 14)); // NOI18N
         path.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout pathPLayout = new javax.swing.GroupLayout(pathP);

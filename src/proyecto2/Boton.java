@@ -39,8 +39,8 @@ public class Boton {
     
     
     
-    ImageIcon Archivo = new ImageIcon(".\\src\\Iconos\\Archivo.png");
-    ImageIcon File = new ImageIcon(".\\src\\Iconos\\File.png");
+    ImageIcon Archivo = new ImageIcon("Archivo.png");
+    ImageIcon File = new ImageIcon("File.png");
     
     
     public JButton MakeButtonArch(){
